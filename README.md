@@ -3,7 +3,7 @@ https://www.docker.com/community-edition#/download
 
 <br />
 
-#### 2. Build container
+#### 2. Build container using basic [Dockerfile](https://github.com/chap/sinatra-on-heroku-via-docker/blob/master/Dockerfile)
 `$ docker build -t friendlyname .`
 
 <br />
