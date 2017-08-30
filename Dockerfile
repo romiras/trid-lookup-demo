@@ -7,5 +7,5 @@ ADD myapp.rb myapp.rb
 # Install Sinatra gem
 RUN gem install sinatra --no-ri --no-rdoc
 
-# Run the app
+# Start Sinatra
 CMD ["ruby", "myapp.rb"]
