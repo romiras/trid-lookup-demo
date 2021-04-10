@@ -3,5 +3,5 @@ build:
     web: Dockerfile
     worker: Dockerfile
 run:
-  web: ruby myapp.rb
-  worker: ruby worker.rb
+  web: bundle exec ruby myapp.rb
+  worker: bundle exec ruby worker.rb
