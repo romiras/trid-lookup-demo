@@ -11,14 +11,20 @@ RUN gem install bundler --no-document && \
     rm -rf /usr/local/bundle/bundler/gems/*/.git \
     /usr/local/bundle/cache/
 
+RUN curl -s -o /tmp/trid_linux_64.zip https://mark0.net/download/trid_linux_64.zip && \
+    unzip /tmp/trid_linux_64.zip trid && \
+    chmod a+x ./trid
 
 FROM heroku/heroku:20
+
+RUN mkdir -p /usr/lib/trid && \
+    curl -s -o /tmp/triddefs.zip https://mark0.net/download/triddefs.zip && \
+    unzip /tmp/triddefs.zip -d /usr/lib/trid
 
 COPY --from=builder /usr/lib/ruby/ /usr/lib/ruby/
 COPY --from=builder /var/lib/gems/ /var/lib/gems/
 COPY --from=builder /usr/local/bin/ /usr/local/bin/
-
-RUN gem list && bundle --version
+COPY --from=builder /app/trid /usr/local/bin/trid
 
 # Copy Sinatra app into container
 ADD . .
