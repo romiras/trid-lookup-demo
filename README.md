@@ -1,55 +1,20 @@
-#### 1. Install Docker
-https://www.docker.com/community-edition#/download
+# trid-lookup-demo
 
-<br />
+trid-lookup-demo is an application that allows to detect type of uploaded file.
 
-#### 2. Build container using basic [Dockerfile](https://github.com/chap/sinatra-on-heroku-via-docker/blob/master/Dockerfile)
-`$ docker build -t friendlyname .`
+Powered by [TrID](https://mark0.net/soft-trid-e.html) and [Sinatra](https://sinatrarb.com).
 
-<br />
+## Usage
 
-#### 3. Run container locally, mapping container's port 4567 to localhost:4000
+```
+curl --form file='@/Users/myname/Downloads/file.gif' https://trid-lookup-demo.herokuapp.com/detect
+```
 
-`$ docker run -p 4000:4567 friendlyname`
+### Sample output
 
-<br />
-
-
-#### 4. Test locally
-
-http://localhost:4000
-
-<br />
-
-
-#### 5. Create Heroku app
-
-`$ heroku create`
-
-<br />
-
-
-#### 6. Login to Heroku's container registry
-
-`$ heroku container:login`
-
-<br />
-
-
-#### 7. Push to Heroku's container registry
-
-`$ heroku container:push web`
-
-<br />
-
-
-#### 8. View on Heroku
-
-`$ heroku open`
-
-<br />
-
-
-#### More info
-
-https://devcenter.heroku.com/articles/container-registry-and-runtime
+```
+59.1% (.GIF) GIF animated bitmap (14500/1/2)
+24.4% (.GIF) GIF89a bitmap (6000/1)
+12.2% (.GIF) GIF bitmap (generic) (3000/1)
+4.0% (.BS/BIN) PrintFox/Pagefox bitmap (var. G) (1000/1)
+```
