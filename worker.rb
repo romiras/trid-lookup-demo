@@ -1,4 +1,6 @@
 i = 0
 while true
-  puts "#{i} = #{Time.now}"
+  i += 1
+  puts "#{i} = #{Time.now.utc}"
+  sleep(1)
 end
