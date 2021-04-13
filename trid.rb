@@ -8,7 +8,7 @@ module TrID
         skip = true
         IO.popen(cmd) do |io|
             io.each do |line|
-                yield(line.strip) unless skip
+                yield(line.strip + "\n") unless skip
                 if line.start_with?("Collecting data")
                     skip = false if skip
                 end
